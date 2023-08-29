@@ -12,3 +12,5 @@ class Profile(models.Model):
     previous_work = models.TextField(max_length=100)
     skills = models.TextField(max_length=100)
 
+    def __str__(self):
+        self.name
