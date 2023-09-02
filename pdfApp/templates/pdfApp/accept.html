@@ -10,9 +10,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="form-group">
+                    {% for fm in form %}
+                      <div class="form-group mb-3">
+                        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                      </div>
+                    {% endfor %}
+                    <input type="submit" value="submit" class="btn btn-primary">
+                    {% if form.non_field_errors %}
+                      {% for error in form.non_field_errors %}
+                      <p class="alert alert-danger my-3">{{error}}</p>
+                      {% endfor %}
+                    {% endif %}
+                    {% comment %} <div class="form-group">
                       <label for="">Name</label>
                       <input type="text" class="form-control" id="name" name="name">
                     </div>
@@ -48,7 +59,7 @@
                         <label for="">Skills</label>
                         <textarea type="text" class="form-control" id="skills" name="skills"></textarea>
                       </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button> {% endcomment %}
                   </form>
             </div>
         </div>
