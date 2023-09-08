@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <title>CV Generator</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    C.V generator Website
+{% endblock %}
+
+{% block css_files %}
+    {% comment %} <link rel="stylesheet" href="{% static "pdfapp/index.css" %}" /> {% endcomment %}
+
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+
     <div class="container">
         <div class="row">
             <div class="col-md-7">
                 <form action="" method="POST" enctype="multipart/form-data">
+                  
                     {% csrf_token %}
                     {% for fm in form %}
                       <div class="form-group mb-3">
@@ -23,46 +30,9 @@
                       <p class="alert alert-danger my-3">{{error}}</p>
                       {% endfor %}
                     {% endif %}
-                    {% comment %} <div class="form-group">
-                      <label for="">Name</label>
-                      <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Email Address</label>
-                        <input type="text" class="form-control" id="email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Phone Number</label>
-                        <input type="text" class="form-control" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="">About-You</label>
-                        <textarea type="text" class="form-control" id="summary" name="summary"></textarea>
-                      </div>
-                      <div class="form-group">
-                        <label for="">Degree</label>
-                        <input type="text" class="form-control" id="degree" name="degree">
-                      </div>
-                      <div class="form-group">
-                        <label for="">School</label>
-                        <input type="text" class="form-control" id="school" name="school">
-                      </div>
-                      <div class="form-group">
-                        <label for="">University</label>
-                        <input type="text" class="form-control" id="university" name="university">
-                      </div>
-                      <div class="form-group">
-                        <label for="">Previous Work</label>
-                        <textarea type="text" class="form-control" id="previous_work" name="previous_work"></textarea>
-                      </div>
-                      <div class="form-group">
-                        <label for="">Skills</label>
-                        <textarea type="text" class="form-control" id="skills" name="skills"></textarea>
-                      </div>
-                    <button type="submit" class="btn btn-primary">Submit</button> {% endcomment %}
-                  </form>
+                  
+                </form>
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

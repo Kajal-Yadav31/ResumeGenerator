@@ -36,7 +36,7 @@ state_choices = (
 class Profile(models.Model):
     name = models.CharField(max_length=50)
     dob = models.DateField(auto_now=False, auto_now_add=False)
-    gender = models.CharField(max_length=100 )
+    gender = models.CharField(max_length=100)
     email = models.EmailField(max_length = 100)
     phone = models.CharField(max_length=11)
     locality = models.CharField(max_length=100)
