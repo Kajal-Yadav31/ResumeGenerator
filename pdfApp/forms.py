@@ -27,7 +27,7 @@ class ProfileForm(forms.ModelForm):
         'profile_image': 'Profile Image', 'certificate': 'Document', 'summary': 'About Yourself', 'degree': 'Degree', 'school':'School', 'university': 'University', 'previous_work': 'Previous Work', 'skills': 'Skills','city':'City', 'locality': 'Locality','state': 'State'}
         widgets = {
             'name':forms.TextInput(attrs={'class':'form-control'}),
-            'dob':forms.DateInput(attrs={'class':'form-control'}),
+            'dob':forms.DateInput(attrs={'class':'form-control', 'id':'datepicker'}),
             'locality':forms.TextInput(attrs={'class':'form-control'}),
             'city':forms.TextInput(attrs={'class':'form-control'}),
             'pin':forms.NumberInput(attrs={'class':'form-control'}),

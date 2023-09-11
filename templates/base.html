@@ -23,15 +23,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url "accept" %}">Home</a>
+              <a class="nav-link active border-bottom"aria-current="page" href="{% url "accept" %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="{% url "list" %}">Profile List</a>
+              <a class="nav-link active" aria-current="page"href="{% url "list" %}">Profile List</a>
             </li>
             
-            <li class="nav-item">
-              <a class="nav-link disabled active" href="#" tabindex="-1">View Resume</a>
+             <li class="nav-item">
+              <a class="nav-link active" aria-current="page"
+              href="#">View Resume</a>
             </li>
+             
           </ul>
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-but">
@@ -44,13 +46,17 @@
         </div>
       </div>
     </nav>
-   
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    {% block content %}
-    {% endblock %}
-    <footer>
+    <section >
+      <div class="backgroundi">
+      {% block content %}
+    {% endblock %}</div>
+    </section>
+    
+    
+    {% comment %} <footer>
       <div class="container" style="padding: 30px 0; " align="center">
           <a href="#" style="padding: 14px;">
               <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
@@ -72,11 +78,11 @@
                               </a>
       </div>
       <div style="background: rgb(8, 8, 51);">
-          <p style="color: white; padding: 15px 0;" align="right">
+          <p style="color: white; padding: 15px 0;" align="center">
               &copy; 2023 Copyright: <a href="mailto:kajal1307@gmail.com">Created By: Kajal Yadav</a>
           </p>
       </div>
-  </footer>
+  </footer> {% endcomment %}
   </body>
 </html>
 

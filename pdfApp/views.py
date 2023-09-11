@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .models import Profile
 from .forms import ProfileForm
@@ -12,11 +13,12 @@ class acceptView(View):
         def get(self, request):
             form = ProfileForm()
             return render(request, 'pdfApp/accept.html',{'form':form})
-        
+             
         def post(self, request):
             form = ProfileForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
+                return HttpResponseRedirect('/home/')
             return render(request, 'pdfApp/accept.html',{'form':form})
 
 
@@ -38,5 +40,13 @@ def resume(request,id):
 
 def list(request):
     profiles = Profile.objects.all()
-    return render(request,'pdfApp/list.html',{'profiles':profiles})
+    return render(request,'pdfApp/list.html', {'profiles':profiles})
+
+
+# class UserDetailView(View):
+
+def UserDetail(request, id):
+    Visitor = Profile.objects.get(pk=id)
+
+    return render(request, 'pdfApp/Individual-User.html', {'Visitor': Visitor})
 

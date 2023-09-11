@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Information of Individual User
+{% endblock %}
+
+{% block css_files %}{% endblock %}
+
+{% block content %}
+<div class="container" style="background-color:  wheat; height:100%" >
+    <div class="row m-5">
+        <div class="col-md-12 " >
+        <h1 style=" margin-top : 2rem; background-color: white "> Information of Individual User</h1>
+    </div>
+   
+        <div class="row">
+            <div class="col-sm-10 shadow p-5 offset-sm-1" style="background-color: white ; margin-top: 1rem;">
+                <h3 class="text-center"><u>Resume</u></h3>
+                <br/>
+                <p class="float-end">Application No: {{ Visitor.id }}</p>
+              
+                {% comment %} <img src="{{ Visitor.profile_image.url}}" alt="" class="img-fluid img-thumnail float-end mt-2" width="150" height="150"> {% endcomment %}
+
+                <h4 style="font-weight: bold">Name of Candidate : {{ Visitor.name}}</h3>
+                <p>E-mail Id : {{ Visitor.email}}</p>
+                <p >Contact No. : {{ Visitor.phone}}</p>
+                <br/>
+                <hr/>
+                <p>Date of Birth : {{ Visitor.dob}}</p>
+                <p >Gender : {{ Visitor.gender}}</p>
+                <br/>
+                <hr/>
+                <p>About Yourself : </p>
+                <p>{{Visitor.summary}}</p>
+                <hr/>
+                <p>Skills</p>
+                <p>{{Visitor.skills}}</p>
+                <p>Education : </p>
+                <ul>
+                    <li>Schooling: {{Visitor.school}}</li>
+                    <li>{{Visitor.degree}} from{{Visitor.university}}</li>
+                </ul>
+                <hr/>
+                <p>Previous Work</p>
+                <p>{{Visitor.previous_work}}</p>
+
+                <p> Attachment: <a href= "{{ Visitor.myfile.url}}" style="color: navy">Download file</a></p>
+                <div class="col-md-6">
+                    <a href="{% url "resume" {{Visitor.id}} %}" class="btn btn-warning ">Download CV</a>
+                </div>
+                <div>
+                    <a href="{% url "list" %}" class="btn btn-danger float-end"> Back </a>
+                </div>
+            </div>
+        </div>
+</div>  
+{% endblock %}
