@@ -22,10 +22,10 @@ class acceptView(View):
             return render(request, 'pdfApp/accept.html',{'form':form})
 
 
-def resume(request,id):
-    user_profile = Profile.objects.get(pk=id)
+def resume(request, resume_id):
+    user_profile = Profile.objects.get(pk=resume_id) 
     template = loader.get_template('pdfApp/resume.html')
-    html = template.render({'user_profile':user_profile})
+    html = template.render({'user_profile':user_profile })
     options = {
         'page-size': 'Letter',
         'encoding':"UTF-8",

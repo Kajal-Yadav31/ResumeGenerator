@@ -47,7 +47,7 @@
 
                 <p> Attachment: <a href= "{{ Visitor.myfile.url}}" style="color: navy">Download file</a></p>
                 <div class="col-md-6">
-                    <a href="{% url "resume" {{Visitor.id}} %}" class="btn btn-warning ">Download CV</a>
+                    <a href="{% url "resume" Visitor.id %}" class="btn btn-warning">Download CV</a>
                 </div>
                 <div>
                     <a href="{% url "list" %}" class="btn btn-danger float-end"> Back </a>
@@ -56,3 +56,4 @@
         </div>
 </div>  
 {% endblock %}
+
