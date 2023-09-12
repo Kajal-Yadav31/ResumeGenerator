@@ -1,5 +1,5 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+# from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from .models import Profile
 from .forms import ProfileForm
 from django.views import View
@@ -18,7 +18,7 @@ class acceptView(View):
             form = ProfileForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
-                return HttpResponseRedirect('/home/')
+                return redirect("accept")
             return render(request, 'pdfApp/accept.html',{'form':form})
 
 
@@ -50,3 +50,23 @@ def UserDetail(request, id):
 
     return render(request, 'pdfApp/Individual-User.html', {'Visitor': Visitor})
 
+
+def update_form(request, id):
+    review = Profile.objects.get(id=id)
+    form =  ProfileForm(request.POST or None, instance=review)
+
+    if form.is_valid():
+        form.save()
+        return redirect('accept')
+    
+    return render(request, 'pdfApp/accept.html',{'form':form, 'review':review})
+
+
+def delete_form(request, id):
+    review = Profile.objects.get(id=id)
+
+    if request.method == 'POST':
+        review.delete()
+        return redirect('list')
+    
+    return render(request,'pdfApp/deletecv.html', {'review': review})

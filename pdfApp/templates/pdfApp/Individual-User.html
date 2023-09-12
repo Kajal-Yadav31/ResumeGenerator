@@ -45,12 +45,17 @@
                 <p>Previous Work</p>
                 <p>{{Visitor.previous_work}}</p>
 
-                <p> Attachment: <a href= "{{ Visitor.myfile.url}}" style="color: navy">Download file</a></p>
+                {% comment %} <p> Attachment: <a href= "{{ Visitor.myfile.url}}" style="color: navy">Download file</a></p> {% endcomment %}
                 <div class="col-md-6">
                     <a href="{% url "resume" Visitor.id %}" class="btn btn-warning">Download CV</a>
                 </div>
                 <div>
-                    <a href="{% url "list" %}" class="btn btn-danger float-end"> Back </a>
+                    <a href="{% url "list" %}" class="btn btn-success float-end "> Back </a>
+
+                    <a href="{% url "deleteform" Visitor.id %}" class="btn btn-danger float-end ms-3 me-3"> Delete </a>
+
+                    <a href="{% url "update" Visitor.id %}" class="btn btn-primary float-end"> Edit </a>
+                    
                 </div>
             </div>
         </div>

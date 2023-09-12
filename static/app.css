@@ -3,7 +3,8 @@ body {
     padding: 0;
     /* box-sizing: border-box; */
     font-family: 'Poppins', sans-serif;
-    height: 100vh
+    height: 100vh;
+    width: 100vw;
 }
 
 .navbar {
@@ -24,20 +25,20 @@ body {
 }
 
 .backgroundi {
-    background-color: rgb(24, 98, 157);
+    background-image: url("../static/image/box.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
 }
 
-footer {
+/* footer {
     background: rgb(8, 8, 51);
     grid-area: footer;
     width: 100%;
 
 
-}
+} */
 
 a:link {
     color: #fff;
