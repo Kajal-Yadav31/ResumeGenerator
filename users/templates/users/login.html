@@ -10,12 +10,12 @@
 <div class="container" style="background-color:  wheat; height:100vh ; padding: 1rem ">
     
     
-    <div class="content-section"; "margin-top: 4rem; height:100vh;">
+    <div class="content-section"; "margin-top: 4rem; ">
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Log In</legend>
-                {{ form }}
+                {{ form.as_p }}
             </fieldset>
             <div class="form-group">
                 <button class="btn-outline-info" type="submit">Login </button>

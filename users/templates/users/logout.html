@@ -1,10 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Logout User
+{% endblock %}
+
 {% block content %}
-<div class="container" style="background-color:  wheat; height:100vh ; padding: 1rem ">
+
+<div class="container" style="background-color:  wheat; height:100vh ; padding: 2rem; ">
     
-  <h1>You have been logged out</h1>
-  <div class="border-top pt-3">
-    <small class="text-muted">
-        <a class="ml-2" href="{% url'login' %}">Log In Again</a>
-    </small>
-  </div>
+    <div class="content-section"; "margin-top: 4rem; ">   
+        <h1 style="background-color:pink;">You have been logged out</h1>
+        <div class="border-top pt-3">
+                <button class="btn btn-warning" type="submit">
+                <a class="ml-2" href="{% url 'login' %}">Log In Again</a>
+            </button>
+        </div>
+    <div>
 {% endblock %}
