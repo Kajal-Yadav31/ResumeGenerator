@@ -49,7 +49,7 @@ class Profile(models.Model):
     university = models.TextField(max_length=100)
     previous_work = models.TextField(max_length=100)
     skills = models.TextField(max_length=100)
-    profile_image = models.ImageField(upload_to='profilepic',blank=True)
+    profile_image = models.ImageField(upload_to='profilepic',default="pic.jpg")
     certificate = models.FileField(upload_to='Certipdf',blank=True)
 
     def __str__(self):

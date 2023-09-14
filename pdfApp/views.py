@@ -1,5 +1,6 @@
 # from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import ProfileForm
 from django.views import View
@@ -44,7 +45,7 @@ def list(request):
 
 
 # class UserDetailView(View):
-
+@login_required
 def UserDetail(request, id):
     Visitor = Profile.objects.get(pk=id)
 
