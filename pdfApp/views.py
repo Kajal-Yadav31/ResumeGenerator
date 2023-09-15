@@ -1,7 +1,7 @@
-# from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Profile
+from .models import Profile, Resume
 from .forms import ProfileForm
 from django.views import View
 import pdfkit
@@ -44,12 +44,13 @@ def list(request):
     return render(request,'pdfApp/list.html', {'profiles':profiles})
 
 
-# class UserDetailView(View):
+
 @login_required
 def UserDetail(request, id):
     Visitor = Profile.objects.get(pk=id)
 
     return render(request, 'pdfApp/Individual-User.html', {'Visitor': Visitor})
+
 
 
 def update_form(request, id):

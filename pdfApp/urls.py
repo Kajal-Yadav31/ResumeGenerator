@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from . import views 
 
 urlpatterns = [
     #/home/
@@ -14,5 +14,6 @@ urlpatterns = [
     path('update/<int:id>/', views.update_form, name="update"),
     #home/delete/id
     path('delete/<int:id>/', views.delete_form, name="deleteform"),
+    path('view_resume/<str:username>/', views.view_resume, name="view_resume"),
     
 ]

@@ -127,9 +127,10 @@ STATICFILES_DIRS = [
 ]
 
 
-MEDIA_ROOT = BASE_DIR / "profilepic"
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = 'media/'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'accept'
 LOGIN_URL = 'login'
