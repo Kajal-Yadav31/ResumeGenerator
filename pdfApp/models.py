@@ -56,5 +56,3 @@ class Profile(models.Model):
     def __str__(self):
         return self.name
     
-class Resume(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)

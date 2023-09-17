@@ -7,16 +7,16 @@
 
 {% block content %}
 
-<div class="container" style="background-color:  wheat; height:100vh ; padding: 2rem; ">
+<div class="container" style="background-color: white; padding: 2rem; width:60%;  height:90% ; border : 4px solid navy;">
     
     <div class="content-section"; "margin-top: 4rem; ">   
-        <h1 style="background-color:pink; margin-bottom : 3rem;">You have been logged out</h1>
+        <h1 style="background-color: #F08080; margin-bottom : 3rem;">You have been logged out!</h1>
         <div class="border-top pt-3">
-                <button class="btn btn-warning" type="submit">
-                <a class="ml-2" href="{% url 'login' %}">Log In Again</a>
+                <button class="btn btn-info" type="submit">
+                <a class="ml-2 " href="{% url 'login' %}">Log In Again</a>
 
             </button>
-            <a href="{% url "list" %}" class="btn btn-success float-end "> Back </a>
+            <a href="{% url "list" %}" class="btn btn float-end " style="background-color:navy;"> Back </a>
         </div>
     <div>
 {% endblock %}

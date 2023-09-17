@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{% static "app.css" %}" />
     {% block css_files %}{% endblock %}
   </head>
-  <body>
+  <body class="backgroundi">
     <nav class="navbar navbar-expand-lg navbar-dark" >
       <div class="container-fluid">
         <a class="navbar-brand" href="#"><img src="{% static "image/Resume.png"%}" style="height: 55px; width: 200px;"></a>
@@ -51,8 +51,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
-    <section >
-      <div class="backgroundi">
+    <section style="margin: 8rem; height:100%;">
         <div style="margin-top: 5rem;">
         {% if messages %}
           {% for message in messages %}
@@ -63,12 +62,11 @@
         {% endif %}
         </div>
         {% block content %}{% endblock %}
-      </div>
     </section>
     
     
-    {% comment %} <footer>
-      <div class="container" style="padding: 30px 0; " align="center">
+   <footer>
+      {% comment %} <div class="container" style="padding: 30px 0;  align=center; background: rgb(8, 8, 51);">
           <a href="#" style="padding: 14px;">
               <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
           </a>
@@ -87,13 +85,13 @@
                           <a href="#" style="padding: 14px;">
                                   <i class="fa fa-pinterest fa-lg white-text"></i>
                               </a>
-      </div>
-      <div style="background: rgb(8, 8, 51);">
+      </div> {% endcomment %}
+      {% comment %} <div style="background: rgb(8, 8, 51);">
           <p style="color: white; padding: 15px 0;" align="center">
               &copy; 2023 Copyright: <a href="mailto:kajal1307@gmail.com">Created By: Kajal Yadav</a>
           </p>
       </div>
-  </footer> {% endcomment %}
+  </footer>  {% endcomment %}
   </body>
 </html>
 
