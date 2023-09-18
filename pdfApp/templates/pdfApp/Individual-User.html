@@ -8,44 +8,57 @@
 {% block css_files %}{% endblock %}
 
 {% block content %}
-<div class="container" style="background-color:  wheat; height:100%" >
+<div class="container" style="background-color: #1FCECB;" >
     <div class="row m-5">
         <div class="col-md-12 " >
-        <h1 style=" margin-top : 2rem; background-color: tomato; color: wheat;"> Information of Individual User</h1>
+        <h1 style=" margin-top : 2rem; background-color: white; color: navy; font-weight:bold; text-align:center; "> Information of Individual User</h1>
     </div>
    
         <div class="row">
             <div class="col-sm-10 shadow p-5 offset-sm-1" style="background-color: white ; margin-top: 1rem;">
-                <h3 class="text-center"><u>Resume</u></h3>
+                <h3 class="text-center" style="font-weight:bold;"><u>Checkout Your Resume</u></h3>
                 <br/>
                 <p class="float-end">Application No: {{ Visitor.id }}</p>
               
                 <img src="{{ Visitor.profile_image.url }}" alt="" class="img-fluid img-thumnail float-end mt-2" width="150" height="150">
 
-                <h4 style="font-weight: bold">Name of Candidate : {{ Visitor.name}}</h3>
+                <h3 style="font-weight: bold;">Name of Candidate : {{ Visitor.name}}</h3>
+                <p >Gender : {{ Visitor.gender}}</p>
+                <h4 > {{ Visitor.profession}}</h4>
+                <br><br>
+                <br>
+                <hr/>
+                <h4>Personal Detail<h4>
+                <p>Address : {{ Visitor.locality}}-{{ Visitor.city}} , {{ Visitor.state}}</p>
                 <p>E-mail Id : {{ Visitor.email}}</p>
                 <p >Contact No. : {{ Visitor.phone}}</p>
-                <br/>
-                <hr/>
                 <p>Date of Birth : {{ Visitor.dob}}</p>
-                <p >Gender : {{ Visitor.gender}}</p>
-                <br/>
-                <hr/>
-                <p>About Yourself : </p>
+                <p>Linkedin-Profile : {{ Visitor.linkedin_link}}
+               
+                <br/><br/>
+
+                <h4>About Yourself : </h4>
                 <p>{{Visitor.summary}}</p>
-                <hr/>
-                <p>Skills</p>
-                <p>{{Visitor.skills}}</p>
-                <p>Education : </p>
+                <br>
+                <h4>About Your Experience : </h4>
+                <p>{{Visitor.previous_work}}</p>
+                <br>
+                <h4>Education : </h4>
                 <ul>
                     <li>Schooling: {{Visitor.school}}</li>
-                    <li>{{Visitor.degree}} from{{Visitor.university}}</li>
+                    <li>College :  {{Visitor.degree}} from {{Visitor.university}}</li>
                 </ul>
                 <hr/>
-                <p>Previous Work</p>
-                <p>{{Visitor.previous_work}}</p>
+                <h4>About Your Skills</h4>
+                <p>{{Visitor.skills}}</p>
+                <br>
+                <h4> Your Certificates</h4>
+                <p>{{Visitor.certificate}}</p>
+                <br>
+                <h4>Your Interests : </h4>
+                <p>{{Visitor.Interest}}</p>
+                <br>
 
-                {% comment %} <p> Attachment: <a href= "{{ Visitor.myfile.url}}" style="color: navy">Download file</a></p> {% endcomment %}
                 <div class="col-md-6">
                     <a href="{% url "resume" Visitor.id %}" class="btn btn-warning">Download CV</a>
                 </div>

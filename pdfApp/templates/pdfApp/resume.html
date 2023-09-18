@@ -49,7 +49,7 @@ align-items: center;
                 height: 200px;
                 border-radius: 50%;
                 overflow: hidden;">
-                   <img src="{{ user_profile.profile_image.url }}">
+                  {{ user_profile.profile_image.url }}
                    {% comment %} " alt="" style=" top: 0;
                     left: 0;
                     width: 100%;
@@ -92,10 +92,6 @@ align-items: center;
                         color: #03a9f4;"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                         <span style=" color: #fff;
                         font-weight: 300;">{{user_profile.email}}</span>
-                    </li>
-                    <li>
-                        <span class="icon"><i class="fa fa-github" aria-hidden="true"></i></span>
-                        <span class="text">www.github.com</span>
                     </li>
                     <li>
                         <span class="icon"><i class="fa fa-linkedin" aria-hidden="true"></i></span>

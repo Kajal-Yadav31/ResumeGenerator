@@ -17,7 +17,11 @@
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4" style="background-color: #1FCECB; padding:0.5rem; font-size:2rem; font-weight: bold; text-align: center;">Log In</legend>
 
-                <div class="alert alert">{{ form.errors }}</div> 
+                <div class="alert alert-{{ form.tags }}">
+                    {{ form.errors }}
+                </div>
+
+                {% comment %} <div class="alert alert">{{ form.errors }}</div>  {% endcomment %}
 
                 <div style="text-align:center;; font-weight:bold;">
                     {{ form.username.label }}
