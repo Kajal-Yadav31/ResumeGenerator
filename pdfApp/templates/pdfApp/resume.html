@@ -4,38 +4,119 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
         integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     {% comment %} <link rel="stylesheet" href="../Resume/style.css"> {% endcomment %}
-   <style>
-        .* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
 
 </head>
 
-<body style="  background-color: lightblue;
-display: flex;
-justify-content: center;
-align-items: center;
-{% comment %} min-height: 100vh; {% endcomment %}
-">
+<body>
+    <div style="background-color: rgb(8, 8, 51);
+    height:20%; width:100%;
+    padding: 0;
+            font-family: 'Poppins', sans-serif;">
+        <div style="color:White; padding:3rem;">
+            <h1 style="font-weight:bold; font-size:4rem;">{{user_profile.name}}</h1>
+            <h1 style="font-weight:bold;">{{ user_profile.profession}}</h1>
+            <p >Gender : ( {{user_profile.gender}} )</p>
+        </div>
+        <div class="position-absolute top-0 end-0" style="color: white;padding:2rem 1rem;">
+            <ul style="position: relative; list-style-type: none;">
+                <li style="position: relative;
+                list-style-type: none;
+                margin: 10px 0;
+                cursor: pointer;">
+                    <span style="display: inline-block;
+                    width: 30px;
+                    font-size: 18px;
+                    color: #03a9f4;"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                    <span style=" color: #fff;
+                    font-weight: 300;">{{user_profile.locality}}, {{user_profile.city}}, {{user_profile.state}}</span>
+                    
+                </li>
+                <li>
+                    <span style="display: inline-block;
+                    width: 30px;
+                    font-size: 18px;
+                    color: #03a9f4;"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    <span style=" color: #fff;
+                    font-weight: 300;">{{user_profile.email}}</span>
+                </li>
+                <li>
+                    <span style="display: inline-block;
+                    width: 30px;
+                    font-size: 18px;
+                    color: #03a9f4;"><i class="fa fa-linkedin" aria-hidden="true"></i></span>
+                    <span style=" color: #fff;
+                    font-weight: 300;">{{ user_profile.linkedin_link}}</span>
+                </li>
+                <li>
+                    <span style="display: inline-block;
+                    width: 30px;
+                    font-size: 18px;
+                    color: #03a9f4;"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    <span style=" color: #fff;
+                    font-weight: 300;"> +91-{{user_profile.phone}}</span>
+                </li>
+                <li>
+                    <span style="display: inline-block;
+                    width: 30px;
+                    font-size: 18px;
+                    color: #03a9f4;"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                    <span style=" color: #fff;
+                    font-weight: 300;">{{user_profile.dob}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+ 
+        <div style="height:100%; width:100%">
+            <div style="padding:0.5rem; width:60%">
+            <br>
+            <hr>
+            <h1 style=" color:rgb(8, 8, 51);font-weight:bold;">Profile :</h1>
+            <p>{{user_profile.summary}}</p>
+            <hr>
+            <br>
+            <h1 style=" color:rgb(8, 8, 51);font-weight:bold">Exprience :</h1>
+            <p>{{user_profile.previous_work}}</p>
+            <hr>
+            <br>
+            <h1 style=" color:rgb(8, 8, 51);font-weight:bold">Interests :</h1>
+            <p>{{user_profile.Interest}}</p>
 
-    <div style="position: relative;
-    width: 100%;
-    {% comment %} max-width: 1000px;
-    min-height: 1000px; {% endcomment %}
-    background: #fff;
-    {% comment %} margin: 10px; {% endcomment %}
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);">
-        <div style="position: relative;
+            </div>
+        
+        <div class="position-absolute top-50 end-0" style=" width:40%;">
+            <h1 style=" color:rgb(8, 8, 51);font-weight:bold;">Education : </h1>
+            <ul>
+                <li style="font-weight:bold;">Schooling: {{user_profile.school}}</li>
+                <br>
+                <li style="font-weight:bold;">Graduation :  {{user_profile.degree}} from {{user_profile.university}}</li>
+            </ul>
+            <hr/>
+            <br>
+            <h1 style=" color:rgb(8, 8, 51);font-weight:bold;">Skills</h1>
+            <p>{{user_profile.skills}}</p>
+            <br>
+            <hr/>
+            <h1 style="color:rgb(8, 8, 51);font-weight:bold;">Certificates</h1>
+            <p>{{user_profile.certificate}}</p>
+            <br>
+        </div>
+    </div>
+
+    
+
+</body>
+
+</html>
+
+   
+        {% comment %} <div style="position: relative;
         background: #003147;
         padding: 40px;">
             <div style="position: relative;
@@ -49,25 +130,17 @@ align-items: center;
                 height: 200px;
                 border-radius: 50%;
                 overflow: hidden;">
-                  {{ user_profile.profile_image.url }}
+                  {{ user_profile.profile_image.url }} {% endcomment %}
                    {% comment %} " alt="" style=" top: 0;
                     left: 0;
                     width: 100%;
                     height: 100%;
                     object-fit: cover;" {% endcomment %}
                     {% comment %} <img src="../Resume/image/samuel-raita-RiDxDgHg7pw-unsplash.jpg" alt="profile-image"> {% endcomment %}
-                </div>
-                <h2 style="color: #fff;
-                font-size: 1.5rem;
-                margin-top: 20px;
-                text-transform: uppercase;
-                text-align: center;
-                font-weight: 600;
-                line-height: 1.4em;">{{user_profile.name}}<br><span style=" font-size: 0.8e;
-                font-weight: 300;">Web Developer</span></h2>
-            </div>
+          
+             
 
-            <div style="padding-top: 40px;">
+            {% comment %} <div style="padding-top: 40px;">
                 <h3 style="color: #fff;
                 text-transform: uppercase;
                 font-weight: 600;
@@ -102,27 +175,11 @@ align-items: center;
                         <span class="text">{{user_profile.locality}}, {{user_profile.city}}, {{user_profile.state}}</span>
                     </li>
                 </ul>
-            </div>
+            </div> {% endcomment %}
 
-            <div class="contactInfo">
-                <h3 class="title">Education</h3>
-                <ul>
-                    <li>
-
-                    </li>
-                </ul>
-            </div>
-
-        </div>
+          
 
 
-        <div style="position: relative;
-        background: #fff;
-        padding: 40px;"></div>
-    </div>
-</body>
-
-</html>
 
 
 

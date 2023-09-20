@@ -35,25 +35,25 @@ state_choices = (
 
 
 class Profile(models.Model):
-    name = models.CharField(max_length=50)
-    dob = models.DateField(auto_now=False, auto_now_add=False,null=True)
+    name = models.CharField(max_length=40)
+    dob = models.DateField(auto_now_add=False,null=True, blank=True)
     profession = models.CharField(max_length =100, blank=True)
-    gender = models.CharField(max_length=100,null=True)
+    gender = models.CharField(max_length=15,null=True)
     email = models.EmailField(max_length = 100,null=True)
     phone = models.CharField(max_length=11,null=True)
-    locality = models.CharField(max_length=100,null=True)
-    city = models.CharField(max_length=100, null=True)
-    state = models.CharField(choices=state_choices, max_length=50,null=True)
+    locality = models.CharField(max_length=50,null=True)
+    city = models.CharField(max_length=50, null=True)
+    state = models.CharField(max_length=100,choices=state_choices,null=True)
     linkedin_link = models.URLField(max_length=200,blank=True)
-    summary = models.TextField(max_length=200,null=True)
+    summary = models.TextField(max_length=700,null=True)
     degree = models.CharField(max_length=100,null=True)
     school = models.CharField(max_length=100,null=True)
-    university = models.TextField(max_length=100,null=True)
-    previous_work = models.TextField(max_length=100,null=True)
-    skills = models.TextField(max_length=100,null=True)
-    Interest = models.CharField(max_length=300, blank=True)
-    profile_image = models.ImageField(upload_to='profilepic',default="pic.jpg", blank=True)
-    certificate =  models.TextField(max_length=100,null=True)
+    university = models.CharField(max_length=400,null=True)
+    previous_work = models.TextField(null=True)
+    skills = models.TextField(max_length=500,null=True)
+    Interest = models.CharField(max_length=200,blank=True)
+    profile_image = models.ImageField(upload_to='profilepic',default="pic.jpg", blank=True, null=True)
+    certificate =  models.TextField(max_length=500,null=True)
 
     def __str__(self):
         return f'{self.name} Profile'
