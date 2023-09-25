@@ -4,4 +4,3 @@
 __pycache__/
 local_settings.py
 /static/
-SECRET_KEY = 'django-insecure-d4zv_0no=7bqh#x8(7g6npm&k8g)#f1yt1m*7^k3fzodf+it2t'
