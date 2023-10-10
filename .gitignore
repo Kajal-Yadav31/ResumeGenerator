@@ -4,4 +4,47 @@
 __pycache__/
 local_settings.py
 /static/
-SECRET_KEY = 'django-insecure-d4zv_0no=7bqh#x8(7g6npm&k8g)#f1yt1m*7^k3fzodf+it2t'
+.vscode
+*.sqlite
+db.sqlite3
+db.sqlite3-journal
+media
+.pdm.toml
+__pypackages__/
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+cython_debug/
