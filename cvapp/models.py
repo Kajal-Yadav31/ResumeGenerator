@@ -36,7 +36,8 @@ state_choices = (
 
 
 class Profile(models.Model):
-
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, null=True,
+                             blank=True)
     first_name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
     profession = models.CharField(max_length=100, blank=True)

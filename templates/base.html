@@ -37,10 +37,10 @@
           {% if user.is_authenticated %}
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active "aria-current="page" href="#" style="color:blue; font-weight:bold;font-size:1rem;">Build Resume</a>
+              <a class="nav-link active "aria-current="page" href="{% url "accept" %}" style="color:blue; font-weight:bold;font-size:1rem;">Build Resume</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active " aria-current="page "href="#" style="color:blue; font-weight:bold;font-size:1rem;">Candidates List</a>
+              <a class="nav-link active " aria-current="page" href="{% url "list" %}" style="color:blue; font-weight:bold;font-size:1rem;">Candidates List</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active "aria-current="page" href="#" style="color:blue; font-weight:bold;font-size:1rem;">view Resume</a>

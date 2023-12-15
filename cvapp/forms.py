@@ -6,6 +6,7 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = "__all__"
+        exclude = ('user',)
         labels = {'first_name': 'First Name',  'surname': 'Surname', 'profession': 'Job Title', 'phone': 'Contact No', 'email': 'Email ID', 'locality': 'Locality', 'city': 'City', 'state': 'State', 'Pin_code': 'Pin Code', 'linkedin_link': 'LinkedIn', 'Github_link': 'GitHub',  'About': 'About Yourself', 'degree': 'Degree',
                   'school_name': 'School Name', 'school_location': 'School Location', 'College': 'College Name', 'project': 'List of Projects', 'university': 'University', 'work_experience': 'Experience', 'skills': 'Skills', 'Interest': 'Your Interests', 'profile_image': 'Profile Image', 'certificate': 'Certificates'}
         widgets = {
