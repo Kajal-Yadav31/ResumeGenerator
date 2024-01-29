@@ -15,49 +15,59 @@
     </div>
    
         <div class="row">
-            <div class="col-sm-10 shadow p-5 offset-sm-1" style="background-color: white ; margin-top: 1rem; margin-bottom:2rem;">
+            <div class="col-sm-10 shadow p-5 offset-sm-1" style="background-color: white; margin-top: 1rem; margin-bottom:2rem;">
                 <h3 class="text-center" style="font-weight:bold;"><u>Checkout Your Resume</u></h3>
                 <br/>
                 <p class="float-end" style="color:maroon; font-weight:bold">Application No: {{ Visitor.id }}</p>
               
                 <img src="{{ Visitor.profile_image.url }}" alt="" class="img-fluid img-thumnail float-end mt-2" width="150" height="150">
 
-                <h3 style="font-weight: bold;color:maroon;">Name of Candidate : {{ Visitor.name}}</h3>
-                <p ><b>Gender : </b>{{ Visitor.gender}}</p>
-                <h4 > {{ Visitor.profession}}</h4>
-                <br><br>
+                <h2 style="font-weight: bold;color:maroon;">Name of Candidate :</h2>
+                <h3 style="font-weight: bold; color:Navy;"> {{ Visitor.first_name}} {% if Visitor.surname%}{{ Visitor.surname}}{% endif %}</h3>
                 <br>
+                <h4 > {{ Visitor.profession}}</h4>
+                <br> 
                 <hr/>
                 <h4 style="color:maroon; font-weight:bold">Personal Detail</h4>
                 <p style="overflow-wrap: anywhere;"><b>Address :</b> {{ Visitor.locality}}, {{ Visitor.city}} , {{ Visitor.state}}</p>
+                <p><b>Pin Code : </b>{{ Visitor.Pin_code}}</p>
                 <p><b>E-mail Id : </b>{{ Visitor.email}}</p>
                 <p ><b>Contact No. : </b>{{ Visitor.phone}}</p>
-                <p><b>Date of Birth : </b>{{ Visitor.dob}}</p>
-                <p style="overflow-wrap: anywhere;"><b>Linkedin-Profile : </b>{{ Visitor.linkedin_link}}
-               
+                <p><b>Linkedin-Profile : </b>{{ Visitor.linkedin_link}}
+                <p><b>GitHub-Profile : </b>{{ Visitor.Github_link}}
                 <br/><br/>
                 <hr/>
 
                 <h4><b>About Yourself : </b></h4>
-                <p style="overflow-wrap: anywhere;">{{Visitor.summary}}</p>
+                <p style="overflow-wrap: anywhere;">{{Visitor.About}}</p>
                 <br>
                 <hr/>
-                {% if Visitor.previous_work %}
+                {% if Visitor.Work_experience %}
                 <h4><b>About Your Experience :</b> </h4>
-                <p style="overflow-wrap: anywhere;">{{Visitor.previous_work}}</p>
+                <p style="overflow-wrap: anywhere;">{{Visitor.Work_experience}}</p>
                 <br>
                 <hr/>
                 {% endif %}
                 <h4><b>Education : </b></h4>
                 <ul>
-                    <li><b>Schooling:</b> {{Visitor.school}}</li>
+                    <li><b>School Name:</b> {{Visitor.school_name}}</li>
                     <br>
-                    <li><b>Graduation :</b>  {{Visitor.degree}} <b>from </b><p style="overflow-wrap: anywhere;">{{Visitor.university}}</p></li>
+                    <li><b>School Location:</b> {{Visitor.scholl_location}}</li>
+                    <br>
+                    <li><b>College Name :</b>  {{Visitor.College}} </li>
+                    <br>
+                    <li><b>Degree :</b>  {{Visitor.degree}} </li>
+                    <br>
+                    <li><b>University :</b>  {{Visitor.university}} </li>
                 </ul>
 
                 <hr/>
                 <h4><b>About Your Skills</b></h4>
                 <p style="overflow-wrap: anywhere;">{{Visitor.skills}}</p>
+                <br>
+                <hr/>
+                <h4><b>List of Projects:</b></h4>
+                <p style="overflow-wrap: anywhere;">{{Visitor.project}}</p>
                 <br>
                 <hr/>
                 <h4><b> Your Certificates</b></h4>

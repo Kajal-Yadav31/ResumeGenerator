@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Information of Individual User
+{% endblock %}
+
+{% block css_files %}{% endblock %}
+
+{% block content %}
+<h1 style="text-align:center; color:red; text-shadow:5px 5px 8px white;">You Don't have a permission to view others content!</h1>
+
+<a href="{% url "list" %}" class="btn btn-danger " style="width:10rem; margin-left:45rem; margin-top:3rem; font-size:1.5rem; font-weight:bold;"> Back </a>
+{% endblock %}

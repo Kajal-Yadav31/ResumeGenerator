@@ -66,4 +66,4 @@ class Profile(models.Model):
     certificate = models.TextField(max_length=500, null=True)
 
     def __str__(self):
-        return f'{self.name} Profile'
+        return f'{self.first_name} Profile'

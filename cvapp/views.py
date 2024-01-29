@@ -59,9 +59,18 @@ def list(request):
 
 @login_required
 def UserDetail(request, id):
-    Visitor = Profile.objects.get(pk=id)
+    account = Account.objects.get(email__exact=request.user.email)
+    Visitor = get_object_or_404(Profile, pk=id)
 
-    return render(request, 'cvapp/Individual-User.html', {'Visitor': Visitor})
+    if account.email == Visitor.email:
+
+        return render(request, 'cvapp/Individual-User.html', {'Visitor': Visitor})
+    else:
+        return render(request, 'cvapp/unauthorized_access.html')
+
+    # Visitor = Profile.objects.filter(pk=id, user=request.user)
+
+    # return render(request, 'cvapp/Individual-User.html', {'Visitor': Visitor})
 
 
 def update_form(request, id):

@@ -16,7 +16,7 @@
 
 {% block content %}
 
-    <div class="container" style="background-color: white; margin-top: 5rem;  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;width:70%;">
+    <div class="container" style="background-color: white; margin-top: 5rem; margin-bottom: 3rem; box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;width:70%;">
         <h1 style="background-color: #1FCECB;  text-align:center; margin-top: 5rem; padding:1rem; 
         ">Create Your Resume</h1>
         <div class="row">
@@ -29,7 +29,7 @@
                         {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
                       </div>
                     {% endfor %}
-                    <input type="submit" value="submit" class="btn btn-primary" style="background-color:navy;">
+                    <input type="submit" value="submit" class="btn btn-primary" style="background-color:navy; width:12rem; margin-top:2rem; font-size:1.4rem; font-weight:bold;">
                     {% if form.non_field_errors %}
                       {% for error in form.non_field_errors %}
                       <p class="alert alert-danger my-3">{{error}}</p>
