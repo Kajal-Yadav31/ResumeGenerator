@@ -68,14 +68,11 @@ def UserDetail(request, id):
     else:
         return render(request, 'cvapp/unauthorized_access.html')
 
-    # Visitor = Profile.objects.filter(pk=id, user=request.user)
-
-    # return render(request, 'cvapp/Individual-User.html', {'Visitor': Visitor})
-
 
 def update_form(request, id):
     review = Profile.objects.get(id=id)
-    form = ProfileForm(request.POST or None, instance=review)
+    form = ProfileForm(request.POST or None,
+                       instance=review)
 
     if form.is_valid():
         form.save()
