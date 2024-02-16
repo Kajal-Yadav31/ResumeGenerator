@@ -6,7 +6,6 @@ Django Resume Generator is a web application built using the Django framework th
 
 ## Output 
 
-https://github.com/Kajal-Yadav31/ResumeGenerator/assets/129850619/250d9839-b0ad-441e-8805-d0a80934f29d
 
 ## Features
 
