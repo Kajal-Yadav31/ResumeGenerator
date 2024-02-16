@@ -4,6 +4,10 @@
 
 Django Resume Generator is a web application built using the Django framework that allows users to create, view, edit, and download their resumes. The application includes authentication functionality, form layouts for CV information, a profile view with editing options, and PDF download capability.
 
+## Output 
+
+https://github.com/Kajal-Yadav31/ResumeGenerator/assets/129850619/250d9839-b0ad-441e-8805-d0a80934f29d
+
 ## Features
 
 1. **Authentication:**
