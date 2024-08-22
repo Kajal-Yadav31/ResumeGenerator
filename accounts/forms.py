@@ -1,5 +1,19 @@
 from django import forms
-from .models import Account
+from django.forms import ModelForm
+from .models import Account, UserProfile
+
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model = UserProfile
+        exclude = ['userprofile']
+        labels = {
+            'realname': 'Name'
+        }
+        widgets = {
+            'image': forms.FileInput(),
+            'bio': forms.Textarea(attrs={'rows': 3})
+        }
 
 
 class RegisterationForm(forms.ModelForm):

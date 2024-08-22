@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container">
+    <div class="card p-4" style="background-color: lightblue;">
+        <div class="text-center d-flex flex-column align-items-center">
+            <img class="rounded-circle mb-4" style="width: 9rem; height: 9rem; object-fit: cover;" src="{{profile.avatar}}" alt="Profile Picture" />
+            <div class="text-center" style="max-width: 30rem;">
+                <h1>{{profile.name}}</h1>
+                <div class="text-secondary mb-2 mt-0">{{profile.userprofile.username}}</div>
+                <div class="d-flex align-items-center justify-content-center mx-auto">
+                    <img class="mr-1" style="height: 1.5rem; opacity: 0.6;" src="https://img.icons8.com/material-outlined/50/000000/marker.png" alt="Location Icon">
+                    {% if profile.localtion %}
+                    {{profile.localtion}}
+                    {% else %}
+                    Planet Earth
+                    {% endif %}
+                </div>
+                <div class="my-4">
+                    {% if profile.bio %}
+                    {{profile.bio}}
+                    {% else %}
+                    Professional
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

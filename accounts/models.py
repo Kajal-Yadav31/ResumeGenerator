@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
+from django.templatetags.static import static
 
 
 class MyAccountManager(BaseUserManager):
@@ -62,3 +63,31 @@ class Account(AbstractBaseUser):
 
     def has_module_perms(self, add_label):
         return True
+
+
+class UserProfile(models.Model):
+    userprofile = models.OneToOneField(Account, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='avatars/', null=True, blank=True)
+    realname = models.CharField(max_length=20, null=True, blank=True)
+    localtion = models.CharField(max_length=20, null=True, blank=True)
+    bio = models.TextField(null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.userprofile)
+
+    @property
+    def avatar(self):
+        try:
+            avatar = self.image.url
+        except:
+            avatar = static('assets/images/UserProfile.png')
+        return avatar
+
+    @property
+    def name(self):
+        if self.realname:
+            name = self.realname
+        else:
+            name = self.userprofile.username
+        return name

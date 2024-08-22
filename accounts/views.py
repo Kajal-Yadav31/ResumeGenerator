@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegisterationForm
-from .models import Account
+from .models import Account, UserProfile
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.contrib.auth import authenticate, login, logout
+from django.urls import reverse
+from .forms import *
 
 # verification email
 from django.contrib.sites.shortcuts import get_current_site
@@ -165,3 +167,53 @@ def resetPassword(request):
             return redirect('resetPassword')
     else:
         return render(request, 'accounts/resetPassword.html')
+
+
+@login_required
+def profile_view(request, username=None):
+    if username:
+        account = get_object_or_404(Account, username=username)
+    else:
+        account = request.user
+
+    try:
+        profile = account.userprofile
+    except UserProfile.DoesNotExist:
+        raise Http404("Profile does not exist")
+
+    return render(request, 'accounts/profile.html', {'profile': profile})
+
+
+@login_required
+def profile_edit_view(request):
+    try:
+        profile = request.user.userprofile
+    except UserProfile.DoesNotExist:
+        raise Http404("Profile does not exist")
+
+    form = ProfileForm(instance=profile)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+
+    if request.path == reverse('profile-registercreate'):
+        template = 'accounts/profile_registercreate.html'
+    else:
+        template = 'accounts/profile_edit.html'
+
+    return render(request, template, {'form': form})
+
+
+@login_required
+def profile_delete_view(request):
+    user = request.user
+
+    if request.method == 'POST':
+        logout(request)
+        user.delete()
+        messages.success(request, 'Account deleted')
+        return redirect('home')
+    return render(request, 'accounts/profile_delete.html')

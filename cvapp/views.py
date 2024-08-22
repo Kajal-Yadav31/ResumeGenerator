@@ -53,8 +53,8 @@ def resume(request, resume_id):
 
 
 def list(request):
-    profiles = Profile.objects.all()
-    return render(request, 'cvapp/list.html', {'profiles': profiles})
+    UserCV = Profile.objects.all()
+    return render(request, 'cvapp/list.html', {'UserCV': UserCV})
 
 
 @login_required

@@ -8,7 +8,7 @@
 {% block css_files %}{% endblock %}
 
 {% block content %}
-    
+
     <div class="container" style="background-color: white; height:100vh;box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; width:60%;" >
         <div class="row m-5" >
             <div class="col-md-12" style="margin-top: 3rem">
@@ -16,17 +16,17 @@
             </div>
         </div>
 
-        {% for profile in profiles %}
+        {% for usercv in UserCV %}
         <div class="row" >
             <div class="col-md-7" style="color: Navy; font-weight: bold; margin-left:3rem; font-size:1.5rem;">
-             {{profile.id}} )  {{profile.first_name}} {{profile.surname}}
+             {{usercv.id}} )  {{usercv.first_name}} {{usercv.surname}}
             </div>
-            <div style="margin-left:3rem; color:teal"> {{profile.email}} </div>
+            <div style="margin-left:3rem; color:teal"> {{usercv.email}} </div>
             <div class="col-md-7 " style="margin-left:20rem;">
-                <a href= "{% url "viewing" profile.id %}" class="btn btn-warning  "> View Your Details</a>
+                <a href= "{% url "viewing" usercv.id %}" class="btn btn-warning  "> View Your Details</a>
             </div>
-        </div>  
-        <hr>  
+        </div>
+        <hr>
     {% endfor %}
 
     </div>
