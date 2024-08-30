@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Generator</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        h1 {
+            display: flex;
+            flex-direction: row;
+          }
+          h1:before, h1:after{
+            content: "";
+            flex: 1 1;
+            border-bottom: 1px solid;
+            margin: auto;
+          }
+          h1:before {
+            margin-right: 10px
+          }
+          h1:after {
+            margin-left: 10px
+          }
+    </style>
+</head>
+
+<body>
+    <div style="height:28%; width:100%; padding: 1rem;
+            font-family: Gill Sans, sans-serif;background-color:rgb(119, 7, 55); ">
+        <div>
+            <h2 style="font-weight:bold; font-size:4rem; margin-top:0px; color:white;">{{user_profile.first_name}} {{user_profile.surname}}</h2>
+            <h2 style="font-weight:bold; font-size:3rem; color:white;">{{ user_profile.profession}}</h2>
+            <span style="display: inline-block;
+                    width: 30px;
+                    font-size: 21px;
+                    color:white;"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                    <span style=" color:white;
+                    font-weight: bold;">{{user_profile.locality}}, {{user_profile.city}}, {{user_profile.state}} , {{ user_profile.Pin_code}}</span>
+        </div>
+        <div class="position-absolute top-0 end-0" style="padding: 0; width:43%;">
+            <ul style="position: relative; list-style-type: none;">
+
+                <li>
+                    <span style="display: inline-block;
+                    width: 30px;
+                    font-size: 21px;
+                    color:white;"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    <span style="color:white;
+                    font-weight: bold;">{{user_profile.email}}</span>
+                </li>
+                <li>
+                    <span style="display: inline-block;
+                    width: 30px;
+                    font-size: 21px;
+                    color:white;"><i class="fa fa-linkedin" aria-hidden="true"></i></span>
+                    <span style=" color:white;
+                    font-weight: bold;">{{ user_profile.linkedin_link}}</span>
+                </li>
+                <li>
+                    <span style="display: inline-block;
+                    width: 30px;
+                    font-size: 21px;
+                    color:white;"><i class="fa fa-github" aria-hidden="true"></i></span>
+                    <span style="color:white;
+                    font-weight: bold;">{{ user_profile.Github_link}}</span>
+                </li>
+                <li>
+                    <span style="display: inline-block;
+                    width: 20px;
+                    font-size: 21px;
+                    color:white;"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                    <span style=" color:white;
+                    font-weight:bold;"> +91-{{user_profile.phone}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="margin-top:2rem;">
+
+        <h1 style="font-weight:bold; text-align:center; color:rgb(119, 7, 55); margin-bottom:10px; font-size:1.5rem;">SUMMERY :</h1>
+        <p>{{user_profile.About}}</p>
+
+        <hr style=" color:black; height:5px; margin: 0;">
+        <h1 style=" font-weight:bold; text-align:center; color:rgb(119, 7, 55); margin-bottom:10px; font-size:1.5rem;">EDUCATION : </h1>
+
+        <ul>
+            <li style="font-weight:bold; font-size: 1rem;">High School: {{user_profile.school_name}}</li>
+            <span style="display: inline-block;
+                width: 30px;
+                font-size: 16px;
+                "><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                <span style=" color: black;
+                font-weight: bold; font-size:11px;">{{user_profile.scholl_location}}</span>
+            <li style="font-weight:bold; font-size:1rem;">Graduation : {{user_profile.college}} <b>({{user_profile.degree}} )<b> from {{user_profile.university}}</li>
+        </ul>
+
+        <hr style=" color:black; height:5px; margin: 0;">
+        {% if user_profile.Work_experience %}
+        <h1 style=" font-weight:bold; text-align:center; color:rgb(119, 7, 55); margin-bottom:10px; font-size:1.5rem;">WORK EXPERENCE :</h1>
+        <p>{{user_profile.Work_experience}}</p>
+
+        {% endif %}
+
+        <hr style=" color:black; height:5px; margin: 0;">
+        {% if skills_list %}
+        <h1 style=" font-weight:bold; text-align:center; color:rgb(119, 7, 55); margin-bottom:10px; font-size:1.5rem;">SKILLS</h1>
+
+        <ul>
+            {% for skill in skills_list %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <hr style=" color:black; height:5px; margin: 0;">
+        <h1 style="font-weight:bold; text-align:center; color:rgb(119, 7, 55); margin-bottom:10px; font-size:1.5rem;">INTERESTS :</h1>
+        <p>{{user_profile.Interest}}</p>
+
+        <hr style=" color:black; height:5px; margin: 0;">
+        <h1 style="font-weight:bold; text-align:center; color:rgb(119, 7, 55); margin-bottom:10px; font-size:1.5rem">CERTIFICATES</h1>
+        <p>{{user_profile.certificate}}</p>
+
+    </div>
+
+
+
+
+</body>
+</html>

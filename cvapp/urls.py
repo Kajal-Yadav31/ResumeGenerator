@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('home/', views.home, name="home"),
+    path('select-template/', views.select_template, name="select_template"),
 
     path('resumeTemplate/', views.acceptView.as_view(), name="accept"),
 
@@ -10,7 +11,7 @@ urlpatterns = [
 
     path('list/<int:id>/', views.UserDetail, name="viewing"),
 
-    path('resume/<int:resume_id>/', views.resume, name="resume"),
+    path('resume/<int:template_id>/', views.resume, name="resume"),
 
     path('update/<int:id>/', views.update_form, name="update"),
 

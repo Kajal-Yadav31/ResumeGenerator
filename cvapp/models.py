@@ -35,9 +35,21 @@ state_choices = (
     ("National Capital Territory of Delhi", "National Capital Territory of Delhi"), ("Puducherry", "Puducherry"))
 
 
+class ResumeTemplate(models.Model):
+    name = models.CharField(max_length=100)
+    template_image = models.ImageField(upload_to='template_images/')
+    template_file = models.FileField(upload_to='templates/', null=True,
+                                     blank=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Profile(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE, null=True,
                              blank=True)
+    resume_template = models.ForeignKey(
+        ResumeTemplate, on_delete=models.SET_NULL, null=True, blank=True, )
     first_name = models.CharField(max_length=50)
     surname = models.CharField(max_length=50)
     profession = models.CharField(max_length=100, blank=True)

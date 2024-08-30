@@ -11,12 +11,16 @@
     <div class="container h-100 d-flex align-items-center justify-content-center">
         <div class="row text-center justify-content-center">
             <h1 class="text-uppercase text-blue fw-6 lh-17 display-5">create your professional cv in just 5
-                <span class="text-lowercase text-primary">minutes!</span></h1>
+                <span class="text-lowercase text-primary">minutes!</span>
+            </h1>
             <p class="text-grey fs-4 mt-3 mb-5">Easy to use. Time-saver. Professional.</p>
-            <a role="button" class="btn btn-lg text-capitalize btn-primary btn-banner fs-4" href="{% url 'accept' %}">let's get started</a>
+            <a href="{% url 'select_template' %}">
+            <button class="btn btn-lg text-capitalize btn-primary btn-banner fs-4">let's get started</button>
+            </a>
         </div>
     </div>
 </div>
+
 </header>
 
 <main>
@@ -126,7 +130,6 @@
                     <a href="#" class="text-decoration-none fs-17 text-dark">CV Builder</a>
                 </li>
                 <li class="my-2">
-                    <a href="#" class="text-decoration-none fs-17 text-dark">CV Templates</a>
                 </li>
                 <li class="my-2">
                     <a href="#" class="text-decoration-none fs-17 text-dark">Login</a>
