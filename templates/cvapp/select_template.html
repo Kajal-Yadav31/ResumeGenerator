@@ -6,22 +6,24 @@
 {% endblock %}
 
 {% block content %}
-<div class="container" style="margin-top:12rem;">
-    <h2>Select a Resume Template</h2>
-    <form method="POST">
+<div style="margin-top:6rem;">
+<div class="container" style="padding-top:3rem;">
+    <h2 style="margin-bottom:3rem;  text-align:center; color:rgb(25, 25, 112); font-size:3rem; font-weight:bold;"><u>Select a Resume Template<u></h2>
+    <form method="POST" action="{% url 'select_template' %}">
         {% csrf_token %}
         <div class="row">
             {% for template in templates %}
-            <div class="col-md-4">
-                <label>
-                    <input type="radio" name="template_id" value="{{ template.id }}" required>
-                    <img src="{{ template.template_image.url }}" alt="{{ template.name }}" class="img-thumbnail">
-                    <p>{{ template.name }}</p>
-                </label>
+            <div class="col-md-4" style=" margin-bottom:2rem;">
+                <div class="templates-item position-relative">
+                    <div class="template-item-img mx-auto position-relative">
+                        <img src="{{ template.template_image.url }}" alt="{{ template.name }}" class="img-fluid">
+                        <button type="submit" name="template_id" value="{{ template.id }}" class="btn btn-lg btn-primary position-absolute choose-template-btn">Select Template</button>
+                    </div>
+                </div>
             </div>
             {% endfor %}
         </div>
-        <button type="submit" class="btn btn-primary">Select Template</button>
     </form>
+</div>
 </div>
 {% endblock %}

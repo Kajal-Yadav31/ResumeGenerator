@@ -78,7 +78,7 @@
                                         class="rounded-circle mt-1"
                                         alt="Circular Image"
                                         width="70"><b style="margin-left:4px; font-size:1.2rem;">{{request.user.userprofile.name}}</b> </a>
-                        <ul class="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu w-100 bg-white" aria-labelledby="navbarDropdown" style="text-align:center; font-weight:bold; padding:8px;  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;">
                           <li><a href="{% url 'profile' %}">My Profile</a></li>
                         <li><a href="{% url 'profile-edit' %}">Edit Profile</a></li>
                         <li><a href="{% url 'logout' %}">Log Out</a></li>

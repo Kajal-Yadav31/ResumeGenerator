@@ -7,9 +7,6 @@ from accounts.models import Account
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Profile
-from .forms import ProfileForm
-from django.views import View
 import pdfkit
 from django.http import HttpResponse
 from django.template import loader
@@ -23,20 +20,42 @@ def home(request):
     return render(request, 'cvapp/home.html')
 
 
-def select_template(request):
-    templates = ResumeTemplate.objects.all()
-    if request.method == 'POST':
-        template_id = request.POST.get('template_id')
-        if template_id:
-            print("the template_id is", template_id)
-            request.session['selected_template_id'] = template_id
-            return redirect('accept')  # Redirect to the resume form page
+@method_decorator(login_required, name='dispatch')
+class SelectTemplate(View):
+    def get(self, request):
+        templates = ResumeTemplate.objects.all()
+        profile = Profile.objects.filter(user=request.user).first()
+        return render(request, 'cvapp/select_template.html', {'templates': templates, 'profile': profile})
 
-    return render(request, 'cvapp/select_template.html', {'templates': templates})
+    def post(self, request):
+        template_id = request.POST.get('template_id')
+        print(f"Received Template ID: {template_id}")
+
+        if template_id:
+            selected_template = get_object_or_404(
+                ResumeTemplate, id=template_id)
+            profile = Profile.objects.filter(user=request.user).first()
+            print(
+                f"Selected Template: {selected_template.name}, Profile Exists: {bool(profile)}")
+
+            if profile:  # Existing user
+                profile.resume_template = selected_template
+                profile.save()
+                print(f"Template updated for Profile ID: {profile.id}")
+                return redirect('viewing', id=profile.id)
+            else:  # New user
+                request.session['selected_template_id'] = template_id
+                print("New user detected, redirecting to resume form")
+                # Redirect to resume form filling page
+                return redirect('accept')
+
+        templates = ResumeTemplate.objects.all()
+        print("No template selected, re-rendering select_template page")
+        return render(request, 'cvapp/select_template.html', {'templates': templates})
 
 
 @method_decorator(login_required, name='dispatch')
-class acceptView(View):
+class Accept(View):
     def get(self, request):
         form = ProfileForm()
         return render(request, 'cvapp/accept.html', {'form': form})
@@ -45,18 +64,23 @@ class acceptView(View):
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
             profile = form.save(commit=False)
+            profile.user = request.user
+
             template_id = request.session.get('selected_template_id')
+
             if template_id:
-                print("template_id is:", template_id)
                 profile.resume_template = ResumeTemplate.objects.get(
                     id=template_id)
-                print(f"Saved Profile Template: {profile.resume_template}")
+                del request.session['selected_template_id']
+                print(
+                    f"Profile will be saved with template: {profile.resume_template.name}")
             profile.save()
-            return redirect('list')
+            return redirect('viewing', id=profile.id)
 
         return render(request, 'cvapp/accept.html', {'form': form})
 
 
+@login_required
 def resume(request, template_id):
     user_profile = get_object_or_404(Profile, pk=template_id)
     skills_list = user_profile.skills.split(',') if user_profile.skills else []
@@ -65,7 +89,7 @@ def resume(request, template_id):
         template_name = user_profile.resume_template.template_file.name
         print("the template path is :", template_name)
     else:
-        template_name = 'cvapp/resume.html'  # Default template
+        template_name = 'cvapp/resume.html'
 
     try:
         if template_name in ['templates/resumetemplate1.html', 'templates/resumetemplate1_BKAojHd.html']:
@@ -79,8 +103,7 @@ def resume(request, template_id):
         elif template_name == 'templates/resumetemplate5.html':
             template_name = 'cvapp/resumetemplate5.html'
         else:
-            template_name = 'cvapp/resume.html'  # Default template
-
+            template_name = 'cvapp/resume.html'
         html = loader.render_to_string(
             template_name, {'user_profile': user_profile, 'skills_list': skills_list})
     except TemplateDoesNotExist:
@@ -115,14 +138,17 @@ def list(request):
 
 @login_required
 def UserDetail(request, id):
-    # account = Account.objects.get(email__exact=request.user.email)
+    # profile_id = request.user.id
+    account = Account.objects.get(email__exact=request.user.email)
     Visitor = get_object_or_404(Profile, pk=id)
+    print("visitor is : ", Visitor)
+    print("profile_id of this user :", Visitor.id)
 
-    # if account.email == Visitor.email:
+    if account.email == Visitor.email:
 
-    return render(request, 'cvapp/Individual-User.html', {'Visitor': Visitor})
-    # else:
-    # return render(request, 'cvapp/unauthorized_access.html')
+        return render(request, 'cvapp/Individual-User.html', {'Visitor': Visitor})
+    else:
+        return render(request, 'cvapp/unauthorized_access.html')
 
 
 def update_form(request, id):
@@ -132,7 +158,7 @@ def update_form(request, id):
 
     if form.is_valid():
         form.save()
-        return redirect('accept')
+        return redirect('viewing', id=id)
 
     return render(request, 'cvapp/accept.html', {'form': form, 'review': review})
 
