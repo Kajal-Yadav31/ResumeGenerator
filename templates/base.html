@@ -77,20 +77,21 @@
                             "{{ request.user.userprofile.avatar }}"
                                         class="rounded-circle mt-1"
                                         alt="Circular Image"
-                                        width="70"><b style="margin-left:4px; font-size:1.2rem;">{{request.user.userprofile.name}}</b> </a>
+                                        width="50"><b style="margin-left:4px; font-size:1.2rem;">{{request.user.userprofile.name}}</b> </a>
                         <ul class="dropdown-menu w-100 bg-white" aria-labelledby="navbarDropdown" style="text-align:center; font-weight:bold; padding:8px;  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;">
                           <li><a href="{% url 'profile' %}">My Profile</a></li>
                         <li><a href="{% url 'profile-edit' %}">Edit Profile</a></li>
                         <li><a href="{% url 'logout' %}">Log Out</a></li>
                         </ul>
                     </li>
+
                     {% else %}
                     <small class="nav-link  text-blue fs-18" style="font-weight:bold; font-size:1.5rem;">Welcome guest!</small>
 
                     <button type="button"
-                        class="btn btn-login btn-primary ms-lg-4 px-4 fs-18 mt-3 mt-lg-0"><a  class="a-login" href="{% url 'login' %}">Login</a></button>
+                        class="btn btn-login btn-primary ms-lg-4 px-4 fs-18 mt-3 mt-lg-0"><a  class="a-login" href="{% url 'login' %}" style="font-weight:bold; color:white;">Login</a></button>
                     <button type="button"
-                        class="btn btn-register btn-primary ms-lg-4 px-4 fs-18 mt-3 mt-lg-0"><a class="a-register"  href="{% url 'register' %}" >SignUp</a></button>
+                        class="btn btn-register btn-primary ms-lg-4 px-4 fs-18 mt-3 mt-lg-0"><a class="a-register"  href="{% url 'register' %}" style="font-weight:bold; color:white;">SignUp</a></button>
                     {% endif %}
                     </ul>
                 </div>

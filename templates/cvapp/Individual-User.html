@@ -11,22 +11,22 @@
 <div class="container" style="background-color: skyblue; box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; width:70%;" >
     <div class="row m-5">
         <div class="col-md-12 " >
-        <h1 style=" margin-top : 2rem; background-color: white; color: navy; font-weight:bold; text-align:center;"> Information of Individual User</h1>
+        <h1 style=" margin-top : 4rem; background-color: white; color: navy; font-weight:bold; text-align:center;"> Information of Individual User</h1>
     </div>
-   
+
         <div class="row">
             <div class="col-sm-10 shadow p-5 offset-sm-1" style="background-color: white; margin-top: 1rem; margin-bottom:2rem;">
-                <h3 class="text-center" style="font-weight:bold;"><u>Checkout Your Resume</u></h3>
+                <h3 class="text-center" style="font-weight:bold;"><u>Checkout Your Resume Information</u></h3>
                 <br/>
                 <p class="float-end" style="color:maroon; font-weight:bold">Application No: {{ Visitor.id }}</p>
-              
+
                 <img src="{{ Visitor.profile_image.url }}" alt="" class="img-fluid img-thumnail float-end mt-2" width="150" height="150">
 
                 <h2 style="font-weight: bold;color:maroon;">Name of Candidate :</h2>
                 <h3 style="font-weight: bold; color:Navy;"> {{ Visitor.first_name}} {% if Visitor.surname%}{{ Visitor.surname}}{% endif %}</h3>
                 <br>
                 <h4 > {{ Visitor.profession}}</h4>
-                <br> 
+                <br>
                 <hr/>
                 <h4 style="color:maroon; font-weight:bold">Personal Detail</h4>
                 <p style="overflow-wrap: anywhere;"><b>Address :</b> {{ Visitor.locality}}, {{ Visitor.city}} , {{ Visitor.state}}</p>
@@ -77,20 +77,23 @@
                 <h4><b>Your Interests : </b></h4>
                 <p style="overflow-wrap: anywhere;">{{Visitor.Interest}}</p>
                 <br>
-
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <a href="{% url "resume" Visitor.id %}" class="btn btn-warning">Download CV</a>
+                    <a href="{% url 'select_template' %}?profile_id={{ review.id }}" class="btn btn-secondary" style="color:blue; font-weight:bold;margin-left:3rem; ">Update Resume Template</a>
+
                 </div>
+
+
                 <div>
                     <a href="{% url "list" %}" class="btn btn-success float-end "> Back </a>
 
                     <a href="{% url "deleteform" Visitor.id %}" class="btn btn-danger float-end ms-3 me-3"> Delete </a>
 
                     <a href="{% url "update" Visitor.id %}" class="btn btn-primary float-end"> Edit </a>
-                    
+
                 </div>
             </div>
         </div>
-</div>  
+</div>
 {% endblock %}
 

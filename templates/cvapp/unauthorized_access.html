@@ -8,9 +8,11 @@
 {% block css_files %}{% endblock %}
 
 {% block content %}
-<div style="margin-top:8rem;  ">
-<h1 style="text-align:center; color:red; text-shadow:5px 5px 8px white;">You Don't have a permission to view others content!</h1>
+<div style="margin-top:6rem;  ">
+    <div style="padding-top:9rem;">
+<h1 style="text-align:center; color:red; text-shadow:5px 5px 8px pink; ">You Don't have a permission to view others content!</h1>
 
-<a href="{% url "list" %}" class="btn btn-danger " style="width:10rem; margin-left:45rem; margin-top:3rem; font-size:1.5rem; font-weight:bold;"> Back </a>
+<a href="{% url "list" %}" class="btn btn-danger " style="width:20rem; margin-left:40rem; margin-top:3rem; font-size:1.5rem; font-weight:bold;"> Back to List Page</a>
+    </div>
 {% endblock %}
 </div>
