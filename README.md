@@ -2,7 +2,7 @@
 
 ## Overview
 
-Django Resume Generator is a secure, scalable web application built using the Django framework that allows users to create, view, edit, and download their resumes. The application features advanced user authentication, profile management, real-time editing, and PDF download capabilities. Additionally, it integrates a machine learning-powered salary prediction model, making it a versatile tool for professionals.
+Django Resume Generator is a secure, scalable web application built using the Django framework that allows users to create, view, edit, and download their resumes. The application features advanced user authentication, profile management, real-time editing, and PDF download capabilities.
 
 ## Demo
 ### **Authentication:**
@@ -29,8 +29,6 @@ https://github.com/user-attachments/assets/f26d17f0-aaac-4418-9fa2-a4607e1a20f2
 ### **View Detail Page:**
 ![ViewDetailPage](https://github.com/user-attachments/assets/5bb146e5-539d-4ea6-a7af-4fdb5a3ca808)
 
-### **Prediction Page:**
-![PredictionPage](https://github.com/user-attachments/assets/d0ae216a-ebe9-431f-9229-438c3b948109)
 
 ### **Registeration Page:**
 ![registerPage](https://github.com/user-attachments/assets/f71b84fc-4483-4191-a8f9-4c9493247b20)
@@ -62,9 +60,6 @@ https://github.com/user-attachments/assets/f26d17f0-aaac-4418-9fa2-a4607e1a20f2
 3. **Dynamic PDF Resume Generation**
    - Enabled users to dynamically generate and download resumes in PDF format, with options for real-time editing and template updates, showcasing full-stack development skills in Python and Django.
 
-4. **Machine Learning-Powered Salary Prediction**
-   - Implemented a machine learning-powered salary prediction model using Python, utilizing regression algorithms and predictive analytics to estimate salaries based on user inputs.
-   - This feature demonstrates proficiency in machine learning and data-driven application development.
 
 
 ## Getting Started
@@ -79,21 +74,7 @@ https://github.com/user-attachments/assets/f26d17f0-aaac-4418-9fa2-a4607e1a20f2
 2. Navigate to the project directory: `cd ResumeGenerator`
 3. Install dependencies: `pip install -r requirements.txt`
 
-## Docker Setup
 
-### Prerequisites
-- Docker installed on your machine. You can download and install Docker from [here](https://www.docker.com/get-started).
-
-### Running the project
-
-1) To Build and Start the Docker Container :
-    `docker-compose up -d`
-
-2) Apply Migrations :
-   ` docker-compose exec web python manage.py migrate`
-
-3) Create a Superuser :to access admin panel
-    `docker-compose exec web python manage.py createsuperuser`
 
 ### Usage
 - Access the application at `http://localhost:8000/` in your web browser.
