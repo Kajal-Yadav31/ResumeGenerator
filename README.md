@@ -5,7 +5,49 @@
 Django Resume Generator is a secure, scalable web application built using the Django framework that allows users to create, view, edit, and download their resumes. The application features advanced user authentication, profile management, real-time editing, and PDF download capabilities. Additionally, it integrates a machine learning-powered salary prediction model, making it a versatile tool for professionals.
 
 ## Demo
-https://github.com/Kajal-Yadav31/ResumeGenerator/assets/129850619/dfcd86fd-e8c6-44e9-b93c-8753c4e8ae84
+### **Authentication:**
+https://github.com/user-attachments/assets/bf28d6a5-eb9d-4bc3-b915-9e226a08ea36
+
+### **Forgot Password:**
+https://github.com/user-attachments/assets/36d54596-bebb-4246-8f46-9b7de0c05cca
+
+### **ResumeTemplate:**
+https://github.com/user-attachments/assets/f26d17f0-aaac-4418-9fa2-a4607e1a20f2
+
+### **HomePage:**
+![HomePage](https://github.com/user-attachments/assets/424e9282-7a4d-4437-af13-3f64af64da26)
+
+### **Resume SelectTempalte Page:**
+![ResumeTemplatePage](https://github.com/user-attachments/assets/c0280fb6-1509-461d-b109-bcd8f96975df)
+
+### **Resume Filling Page**
+![ResumePage](https://github.com/user-attachments/assets/c8e260f6-5579-420b-822a-ad52f6a96525)
+
+### **ListofUser:**
+![ListofUser](https://github.com/user-attachments/assets/6f45e165-229e-4f38-a0fc-d79166fa195a)
+
+### **View Detail Page:**
+![ViewDetailPage](https://github.com/user-attachments/assets/5bb146e5-539d-4ea6-a7af-4fdb5a3ca808)
+
+### **Prediction Page:**
+![PredictionPage](https://github.com/user-attachments/assets/d0ae216a-ebe9-431f-9229-438c3b948109)
+
+### **Registeration Page:**
+![registerPage](https://github.com/user-attachments/assets/f71b84fc-4483-4191-a8f9-4c9493247b20)
+
+### **Login Page:**
+![LoginPage](https://github.com/user-attachments/assets/890d8c12-4dbd-4dc1-aad7-cef5f11adb92)
+
+### **Forget Password Page:**
+![ForgetPage](https://github.com/user-attachments/assets/bd8899f4-9495-4eac-aae4-65a84d215ade)
+
+### **Profile Edit Page:**
+![ProfileEditpage](https://github.com/user-attachments/assets/5bef09fa-f9fc-4708-a51a-1a7fc8b54495)
+
+### **Profile View Page:**
+![ProfileReview](https://github.com/user-attachments/assets/3a2ab5fe-6b37-4bbe-ba42-e4f9260c7796)
+
+
 
 ## Features
 
